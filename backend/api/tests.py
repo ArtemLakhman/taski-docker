@@ -13,7 +13,7 @@ class TaskiAPITestCase(TestCase):
         self.assertEqual(response.status_code, HttpStatus.OK)
 
     def test_task_creation(self):
-        data = {'title': 'Test', 'description': 'Test'
+        data = {'title': 'Test', 'description': 'Test'}
         response = self.guest_client.post('/api/tasks', data=data)
         self.assertEqual(response.status_code, HTTPStatus.CREATED)
         self.assertEqual(models.Task.objects.filter(title='Test').exists())
