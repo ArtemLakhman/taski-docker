@@ -1,7 +1,9 @@
 from http import HTTPStatus
 
-from api import models
 from django.test import Client, TestCase
+
+from api import models
+
 
 class TaskiAPITestCase(TestCase):
     """TESTS FOR TASKI"""
@@ -10,7 +12,7 @@ class TaskiAPITestCase(TestCase):
 
     def test_list_exists(self):
         response = self.guest_client.get('/api/tasks/')
-        self.assertEqual(response.status_code, HttpStatus.OK)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
     def test_task_creation(self):
         data = {'title': 'Test', 'description': 'Test'}
